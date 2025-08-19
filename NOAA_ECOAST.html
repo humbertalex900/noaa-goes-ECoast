@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live NOAA GOES Imagery</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: #000;
+        text-align: center;
+      }
+      img {
+        width: 100%;
+        max-width: 900px;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="goesGif" alt="GOES Satellite Loop" />
+    <script>
+      function updateGif() {
+        const gif = document.getElementById("goesGif");
+        const timestamp = new Date().getTime();
+        gif.src = "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/eus/GEOCOLOR/20252311351-20252311806-GOES19-ABI-EUS-GEOCOLOR-900x540.gif" + timestamp;
+      }
+      updateGif();
+      setInterval(updateGif, 600000); // refresh every 10 minutes
+    </script>
+  </body>
+</html>
